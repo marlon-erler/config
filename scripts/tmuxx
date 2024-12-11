@@ -19,10 +19,7 @@ done
 
 ### MAIN
 tmux-session 01-MAIN \
-    $A \
-    $A/podman/alpine \
-    $A/podman/debian \
-    $BAK \
+    $REPO \
     $SCRIPTS \
     $ASSETS
 

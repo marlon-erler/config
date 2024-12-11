@@ -19,8 +19,6 @@ items="
 .prettierrc.yaml
 .npmignore
 .gitignore
-config
-gitea
 Documents"
 
 case $cmd in
