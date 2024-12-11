@@ -61,3 +61,4 @@ cat $REPO/assets/bashrc >> ~/.bashrc
 # GIT CONFIG
 git config --global user.name marlon-erler
 git config --global user.email viridian035@gmail.com
+git config --global core.editor vim
