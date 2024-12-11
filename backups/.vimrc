@@ -24,6 +24,7 @@ Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 function InstallCoc()
