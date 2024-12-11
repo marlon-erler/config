@@ -55,13 +55,9 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 # SETUP
 REPO=$HOME/config
-$REPO/scripts/setup
 $REPO/scripts/backup restore
 cat $REPO/assets/bashrc >> ~/.bashrc
 
 # GIT CONFIG
 git config --global user.name marlon-erler
 git config --global user.email viridian035@gmail.com
-
-cd $REPO
-git remote set-url origin git@github.com:marlon-erler/config.git
