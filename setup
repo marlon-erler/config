@@ -16,10 +16,8 @@ sudo apt install -y \
 sudo apt install -y \
     neofetch tmux \
     sqlite3 \
-    fuse libfuse2 \
     openssh-server openssl \
     git curl vim \
-    \
     gcc libc6-dev \
     python3 python3-pip \
     lua5.4 luarocks
