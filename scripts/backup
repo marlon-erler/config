@@ -10,7 +10,7 @@ guard() {
 cmd=$1
 guard "$cmd" "command not specified"
 
-BAK=$HOME/backups
+BAK=$HOME/Documents/backups
 
 items="
 .viminfo
