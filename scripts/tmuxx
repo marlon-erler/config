@@ -15,7 +15,13 @@ for main_folder in $(ls $CODE); do
     tmux-session $main_folder \
 	$CODE/$main_folder \
 	$CODE/$main_folder/*
-done
+    done
+
+### LOCAL
+for main_folder in $(ls $ADMIN); do
+    tmux-session $MAIN_folder \
+	$ADMIN/$main_folder
+    done
 
 ### MAIN
 tmux-session 01-MAIN \
