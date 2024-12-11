@@ -23,8 +23,10 @@ sudo apt install -y \
     lua5.4 luarocks
 
 # GITEA
-wget -O gitea https://dl.gitea.com/gitea/1.22.4/gitea-1.22.4-linux-amd64
-chmod +x gitea
+GITEA=$HOME/Documents/gitea
+mkdir -p $GITEA
+wget -O $GITEA/bin https://dl.gitea.com/gitea/1.22.4/gitea-1.22.4-linux-amd64
+chmod +x $GITEA/bin
 
 # LUAROCKS
 sudo luarocks install luafilesystem
