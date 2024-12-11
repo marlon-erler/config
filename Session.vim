@@ -205,6 +205,8 @@ set shiftwidth=4
 set smarttab
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set updatetime=500
+set winminheight=0
+set winminwidth=0
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -219,9 +221,9 @@ else
   set shortmess=aoO
 endif
 badd +1 s
-badd +0 setup
-badd +0 scripts/backup
-badd +0 assets/bashrc
+badd +1 setup
+badd +1 scripts/backup
+badd +1 assets/bashrc
 argglobal
 %argdel
 $argadd s
@@ -251,7 +253,6 @@ exe 'vert 2resize ' . ((&columns * 160 + 96) / 192)
 argglobal
 enew
 file NERD_tree_tab_1
-balt s
 let s:cpo_save=&cpo
 set cpo&vim
 nnoremap <buffer> <silent> <NL> :call nerdtree#ui_glue#invokeKeyMap("<C-j>")
@@ -589,7 +590,7 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 35 - ((17 * winheight(0) + 25) / 50)
+let s:l = 35 - ((13 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -621,7 +622,6 @@ exe 'vert 2resize ' . ((&columns * 160 + 96) / 192)
 argglobal
 enew
 file NERD_tree_tab_3
-balt assets/bashrc
 let s:cpo_save=&cpo
 set cpo&vim
 nnoremap <buffer> <silent> <NL> :call nerdtree#ui_glue#invokeKeyMap("<C-j>")
@@ -644,14 +644,6 @@ nnoremap <buffer> <silent> R :call nerdtree#ui_glue#invokeKeyMap("R")
 nnoremap <buffer> <silent> T :call nerdtree#ui_glue#invokeKeyMap("T")
 nnoremap <buffer> <silent> U :call nerdtree#ui_glue#invokeKeyMap("U")
 nnoremap <buffer> <silent> X :call nerdtree#ui_glue#invokeKeyMap("X")
-nmap <buffer> [c <Plug>(GitGutterPrevHunk)
-nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
-nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
-nmap <buffer> \hs <Plug>(GitGutterStageHunk)
-xmap <buffer> \hs <Plug>(GitGutterStageHunk)
-nmap <buffer> ]c <Plug>(GitGutterNextHunk)
-xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
-omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
 nnoremap <buffer> <silent> cd :call nerdtree#ui_glue#invokeKeyMap("cd")
 nnoremap <buffer> <silent> e :call nerdtree#ui_glue#invokeKeyMap("e")
 nnoremap <buffer> <silent> f :call nerdtree#ui_glue#invokeKeyMap("f")
@@ -660,8 +652,6 @@ nnoremap <buffer> <silent> gb :call nerdtree#ui_glue#invokeKeyMap("gb")
 nnoremap <buffer> <silent> gi :call nerdtree#ui_glue#invokeKeyMap("gi")
 nnoremap <buffer> <silent> gs :call nerdtree#ui_glue#invokeKeyMap("gs")
 nnoremap <buffer> <silent> i :call nerdtree#ui_glue#invokeKeyMap("i")
-xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
-omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
 nnoremap <buffer> <silent> m :call nerdtree#ui_glue#invokeKeyMap("m")
 nnoremap <buffer> <silent> o :call nerdtree#ui_glue#invokeKeyMap("o")
 nnoremap <buffer> <silent> p :call nerdtree#ui_glue#invokeKeyMap("p")
@@ -959,14 +949,13 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 10 - ((9 * winheight(0) + 25) / 50)
+let s:l = 10 - ((7 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 10
 normal! 0
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 160 + 96) / 192)
 tabnext
@@ -991,7 +980,7 @@ exe 'vert 1resize ' . ((&columns * 31 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 160 + 96) / 192)
 argglobal
 enew
-file NERD_tree_tab_2
+file NERD_tree_tab_4
 balt scripts/backup
 let s:cpo_save=&cpo
 set cpo&vim
@@ -1330,16 +1319,17 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 28 - ((27 * winheight(0) + 25) / 50)
+let s:l = 20 - ((13 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 28
+keepjumps 20
 normal! $
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 160 + 96) / 192)
-tabnext 2
+tabnext 3
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
@@ -1354,6 +1344,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
