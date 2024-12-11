@@ -10,7 +10,9 @@ guard() {
 cmd=$1
 guard "$cmd" "command not specified"
 
-BAK=$FILES/backups
+BAK=$HOME/backups
+LATEST=$BAK/latest
+NEW_NAME="$BAK/before-$(iso-date)"
 
 items="
 .viminfo
@@ -23,15 +25,17 @@ Documents"
 
 case $cmd in
     store)
+	mv $LATEST $NEW_NAME
+
+	mkdir -p $LATEST
 	for item in $items; do
-	    rm -rf $BAK/$item
-	    cp -r ~/$item $BAK
+	    cp -rv ~/$item $LATEST
 	done
 	;;
 
     restore)
 	for item in $items; do
-	    cp -r $BAK/$item ~
+	    cp -rv $LATEST/$item ~
 	done
 	;;
 
