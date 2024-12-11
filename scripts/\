@@ -28,15 +28,11 @@ case $cmd in
 	for item in $items; do
 	    cp -rv ~/$item $STAMPED_NAME
 	done
-	zip -r $STAMPED_NAME.zip $STAMPED_NAME
 	;;
 
     restore)
-	name=$2
-	guard $name "backup datestamp not specified"
-
 	for item in $items; do
-	    cp -rv $BAK/$name/$item ~
+	    cp -rv $LATEST/$item ~
 	done
 	;;
 

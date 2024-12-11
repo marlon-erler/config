@@ -19,6 +19,7 @@ for main_folder in $(ls $CODE); do
 
 ### MAIN
 tmux-session 01-MAIN \
+    $FILES \
     $REPO \
     $SCRIPTS \
     $ASSETS
