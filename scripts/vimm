@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+guard() {
+    if [ -z "$1" ]; then
+	echo "$2"
+	exit
+    fi
+}
+
+rm -rf **/.*.sw*
+vim -S Session.vim

@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+guard() {
+    if [ -z "$1" ]; then
+	echo "$2"
+	exit
+    fi
+}
+
+# BASICS
+sudo apt update
+sudo apt install -y \
+    bash sudo
+
+# APT
+sudo apt install -y \
+    neofetch tmux \
+    sqlite3 \
+    fuse libfuse2 \
+    openssh-server openssl \
+    git curl vim \
+    \
+    gcc libc6-dev \
+    python3 python3-pip \
+    lua5.4 luarocks
+
+# GITEA
+wget -O gitea https://dl.gitea.com/gitea/1.22.4/gitea-1.22.4-linux-amd64
+chmod +x gitea
+
+# LUAROCKS
+sudo luarocks install luafilesystem
+
+# NODE
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install node
+npm install -g  \
+    esbuild typescript prettier \
+    http-server live-server
+
+# BUN
+curl -fsSL https://bun.sh/install | bash
+
+# VIM PLUG-INS
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+mkdir -p ~/.vim/pack/airblade/start 
+cd ~/.vim/pack/airblade/start 
+git clone https://github.com/airblade/vim-gitgutter.git 
+vim -u NONE -c "helptags vim-gitgutter/doc" -c q
+
+# TMUX PLUG-INS
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
+# SETUP
+REPO=$HOME/config
+$REPO/scripts/setup
+$REPO/scripts/backup restore
+cat $REPO/assets/bashrc >> ~/.bashrc
+
+# GIT CONFIG
+git config --global user.name marlon-erler
+git config --global user.email viridian035@gmail.com
+
+cd $REPO
+git remote set-url origin git@github.com:marlon-erler/config.git

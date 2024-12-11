@@ -1,0 +1,20 @@
+
+#######
+
+export REPO=$HOME/config
+export ASSETS=$REPO/assets
+export INSTALL=$REPO/installers
+export SCRIPTS=$REPO/scripts
+
+export FILES=$HOME/Documents
+export CODE=$FILES/Code
+export GITEA=$FILES/gitea
+
+export PATH=$PATH:~/.bun/bin:$SCRIPTS
+
+s() {
+    sudo chmod +x $SCRIPTS/*
+    source ~/.bashrc
+}
+
+shopt -s globstar

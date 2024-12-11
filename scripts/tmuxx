@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+guard() {
+    if [ -z "$1" ]; then
+	echo "$2"
+	exit
+    fi
+}
+
+### 0
+tmux-session 0 $CODE
+
+### CODE
+for main_folder in $(ls $CODE); do
+    tmux-session $main_folder \
+	$CODE/$main_folder \
+	$CODE/$main_folder/*
+done
+
+### MAIN
+tmux-session 01-MAIN \
+    $A \
+    $A/podman/alpine \
+    $A/podman/debian \
+    $BAK \
+    $SCRIPTS \
+    $ASSETS
+
+### FINISH
+cd
+tmux attach -t 01-MAIN

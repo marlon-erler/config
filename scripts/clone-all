@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+guard() {
+    if [ -z "$1" ]; then
+	echo "$2"
+	exit
+    fi
+}
+
+mkdir -p \
+    $CODE/Arduino \
+    $CODE/Commercial \
+    $CODE/Junk \
+    $CODE/OMN \
+    $CODE/Other \
+    $CODE/PWAF
+
+cd $CODE/Arduino
+git clone git@github.com:marlon-erler/LED-Strip.git
+
+cd $CODE/Commercial
+git clone git@github.com:marlon-erler/Fahrschulkartei.git
+ln -s Fahrschulkartei/Frontend Fahrschulkartei-Frontend
+git clone git@github.com:marlon-erler/Fahrschulkartei.wiki.git Fahrschulkartei-wiki
+
+cd $CODE/Junk
+git clone git@github.com:marlon-erler/ganzflicker.git
+
+cd $CODE/OMN
+git clone git@github.com:OpenMessagingNetwork/.github.wiki wiki
+
+cd $CODE/Other
+git clone git@github.com:marlon-erler/pfsdb.git
+
+cd $CODE/PWAF
+git clone git@github.com:pwa-fundament/components.git
+git clone git@github.com:pwa-fundament/reactivity.git
+git clone git@github.com:pwa-fundament/stylesheet.git
+git clone git@github.com:pwa-fundament/themes.git
+git clone git@github.com:pwa-fundament/template.git
