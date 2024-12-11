@@ -17,17 +17,15 @@ for main_folder in $(ls $CODE); do
 	$CODE/$main_folder/*
     done
 
-### LOCAL
-for main_folder in $(ls $ADMIN); do
-    tmux-session $MAIN_folder \
-	$ADMIN/$main_folder
-    done
-
 ### MAIN
 tmux-session 01-MAIN \
     $REPO \
     $SCRIPTS \
     $ASSETS
+
+tmux-session 02-ADMIN \
+    $ADMIN \
+    $ADMIN/*
 
 ### FINISH
 cd
