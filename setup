@@ -14,7 +14,7 @@ sudo apt install -y \
 
 # APT
 sudo apt install -y \
-    neofetch tmux \
+    neofetch tmux imagemagick \
     sqlite3 \
     openssh-server openssl \
     git curl vim \
