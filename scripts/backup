@@ -13,16 +13,12 @@ guard "$cmd" "command not specified"
 BAK=$HOME/backups
 
 items="
-.config
 .viminfo
 .vimrc
-.tmux
 .tmux.conf
 .prettierrc.yaml
 .npmignore
 .gitignore
-.vim
-.tmux
 config
 gitea
 Documents"
