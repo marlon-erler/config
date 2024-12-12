@@ -20,13 +20,15 @@ for main_folder in $(ls $CODE); do
 ### MAIN
 tmux-session 01-MAIN \
     $FILES \
+    $FILES/gitea/custom \
     $REPO \
     $SCRIPTS \
     $ASSETS
 
 tmux-session 02-ADMIN \
     $ADMIN \
-    $ADMIN/*
+    $ADMIN/* \
+    $ADMIN/Management/Finance
 
 ### FINISH
 cd
