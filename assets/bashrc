@@ -9,7 +9,7 @@ export SCRIPTS=$REPO/scripts
 export FILES=$HOME/Documents
 export CODE=$FILES/Code
 export GITEA=$FILES/gitea
-export ADMIN=$FILES/Admin
+export MAIN=$FILES/Main
 
 export PATH=$PATH:~/.bun/bin:$SCRIPTS
 

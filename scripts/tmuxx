@@ -25,10 +25,10 @@ tmux-session 01-MAIN \
     $SCRIPTS \
     $ASSETS
 
-tmux-session 02-ADMIN \
-    $ADMIN \
-    $ADMIN/* \
-    $ADMIN/Management/Finance
+tmux-session 02-MAIN\
+    $FILES \
+    $MAIN \
+    $MAIN/*
 
 ### FINISH
 cd
